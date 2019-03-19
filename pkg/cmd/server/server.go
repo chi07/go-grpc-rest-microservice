@@ -5,6 +5,10 @@ import (
 	"database/sql"
 	"flag"
 	"fmt"
+
+	// mysql driver
+	_ "github.com/go-sql-driver/mysql"
+
 	"github.com/shinichi2510/go-grpc-rest-microservice/pkg/protocol/grpc"
 	"github.com/shinichi2510/go-grpc-rest-microservice/pkg/service/v1"
 )
@@ -29,6 +33,7 @@ func RunServer() error {
 	flag.StringVar(&cfg.DatastoreDBUser, "db-user", "", "DB user")
 	flag.StringVar(&cfg.DatastoreDBPassword, "db-password", "", "DB password")
 	flag.StringVar(&cfg.DatastoreDBSchema, "db-schema", "", "DB Schema")
+	flag.Parse()
 
 	fmt.Println(cfg)
 
